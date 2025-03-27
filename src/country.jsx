@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
-const Country = ({country}) => {
+const Country = ({country , handleVisitedCountries}) => {
+  
+    
+    
     const[visited,setVisited]=useState(false)
     const handleVisit=()=>{
 //         if (visited ===true) {
@@ -9,6 +12,7 @@ const Country = ({country}) => {
 // setVisited(true)
 // }
 setVisited(!visited)
+handleVisitedCountries(country)
     }
     
     
@@ -27,7 +31,7 @@ setVisited(!visited)
     <h3>Area : {country.area}</h3>
     <h3>Region: {country.region}</h3>
     <h3>Sub-region: {country.subregion}</h3> <br />
-    <button onClick={handleVisit}>{visited ? 'visted' :"Not Visited"}</button>
+    <button className={visited ? 'btn-visited' : "btn-not-visited"} onClick={handleVisit}>{visited ? 'visted' :"Not Visited"}</button>
 
     </div>
     <div style={{color: "gold"}}>
